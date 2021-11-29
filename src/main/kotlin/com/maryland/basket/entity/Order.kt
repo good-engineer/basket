@@ -34,7 +34,7 @@ class Order (
         var deadline : Date? = null,
 
         @ManyToOne(fetch = FetchType.EAGER)
-        @JoinColumn(name = "creator")
+        @JoinColumn(name = "creator_id")
         var creator : User? = null,
 
         @Column(nullable = false)

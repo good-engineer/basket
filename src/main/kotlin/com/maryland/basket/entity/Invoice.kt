@@ -26,16 +26,19 @@ class Invoice (
         var updatedAt: Date,
 
         @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "order_id")
         var order : Order? = null,
 
         @Column(nullable = false)
         @ColumnDefault("CREATED")
         var status : InvoiceStatus? = null,
 
-        @OneToOne(fetch = FetchType.EAGER)
+        @ManyToOne(fetch = FetchType.EAGER)
+        @JoinColumn(name = "from_id")
         var from: User? = null,
 
-        @OneToOne(fetch = FetchType.EAGER)
+        @ManyToOne(fetch = FetchType.EAGER)
+        @JoinColumn(name = "to_id")
         var to: User? = null,
 
         var amount: Long? = null,
