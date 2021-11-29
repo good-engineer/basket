@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+    database:
+         image: mysql
+         container_name: test_db
+         environment:
+             - MYSQL_DATABASE=testdb
+             - MYSQL_ROOT_USERNAME=root
+             - MYSQL_ROOT_PASSWORD=root
+         command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+         ports:
+             - 3306:3306
+         networks:
+             - test_network_02
+
+    application:
+         build: .
+         restart: always
+         ports:
+             - 80:8080
+         depends_on:
+             - database
+         container_name: app_test
+         environment:
+             SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/testdb?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true
+             SPRING_DATASOURCE_USERNAME: root
+             SPRING_DATASOURCE_PASSWORD: root
+         networks:
+             - test_network_02
+
+networks:
+     test_network_02:
