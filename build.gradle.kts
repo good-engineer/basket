@@ -1,17 +1,12 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-group = "com.maryland"
-version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_11
-
 // QueryDSL directory configurations
 val querydslGeneratedDir = "$buildDir/generated"
 val querydslOutputSubDirFull = "$querydslGeneratedDir/source/kapt"
 val querydslKtOutputSubDirFull = "$querydslGeneratedDir/source/kaptKotlin"
 
-
 plugins {
-	id("org.springframework.boot") version "2.6.0"
+	id("org.springframework.boot") version "2.5.6"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
 	id("org.jmailen.kotlinter") version "3.7.0" // https://github.com/jeremymailen/kotlinter-gradle/releases
 	id("io.gitlab.arturbosch.detekt") version "1.19.0-RC1" // https://github.com/detekt/detekt/releases
@@ -24,6 +19,9 @@ plugins {
 	kotlin("kapt") version "1.6.0"
 }
 
+group = "com.maryland"
+version = "0.0.1-SNAPSHOT"
+java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
 	mavenCentral()
@@ -33,7 +31,6 @@ dependencies {
 	implementation ("io.jsonwebtoken:jjwt:0.9.1")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1") // https://github.com/Kotlin/kotlinx.serialization
@@ -47,8 +44,10 @@ dependencies {
 
 	kapt("com.querydsl:querydsl-apt:4.4.0:jpa")
 	kapt("org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final")
+}
 
-
+allOpen {
+	annotation("com.maryland.basket.AllOpen")
 }
 
 sourceSets {
@@ -58,10 +57,6 @@ sourceSets {
 			srcDir(querydslKtOutputSubDirFull)
 		}
 	}
-}
-
-allOpen {
-	annotation("com.maryland.basket.AllOpen")
 }
 
 kotlinter {

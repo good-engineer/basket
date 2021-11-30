@@ -1,6 +1,7 @@
 package com.maryland.basket.entity
 
 import com.maryland.basket.AllOpen
+import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
 import java.util.Date
@@ -40,10 +41,24 @@ class User(
     var gender: Gender? = null,
 
     @Column(nullable = true)
-    var age: Int? = null
+    var age: Int? = null,
 
+    @Column(nullable = true, name = "phone_number")
+    var phoneNumber: String? = null,
+
+    @Column(nullable = false)
+    var password: String? = null,
+
+    @Column (nullable = false, name="is_active" )
+    var isActive: Boolean=true,
+
+    @Column(nullable = false)
+    var role: Enum<Role> ? = Role.USER
 )
 
 enum class Gender {
     FEMALE, MALE
+}
+enum class Role {
+    USER, ADMIN
 }

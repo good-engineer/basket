@@ -48,8 +48,7 @@ class Order(
     var creator: User? = null,
 
     @Column(nullable = false)
-    @ColumnDefault("OPENED")
-    var status: Enum<OrderStatus> ? = null,
+    var status: Enum<OrderStatus>  = OrderStatus.OPENED,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "basket_id", referencedColumnName = "id", nullable = false)
