@@ -1,6 +1,4 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import io.gitlab.arturbosch.detekt.Detekt
-import org.jmailen.gradle.kotlinter.tasks.LintTask
 
 group = "com.maryland"
 version = "0.0.1-SNAPSHOT"
@@ -19,7 +17,6 @@ plugins {
 	id("io.gitlab.arturbosch.detekt") version "1.19.0-RC1" // https://github.com/detekt/detekt/releases
 	id("org.jetbrains.dokka") version "1.5.31" // https://github.com/Kotlin/dokka/releases
 	id("org.jetbrains.kotlin.plugin.allopen") version "1.6.0" // https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.allopen
-	id("com.google.protobuf") version "0.8.18" // https://plugins.gradle.org/plugin/com.google.protobuf
 	kotlin("jvm") version "1.6.0"
 	kotlin("plugin.spring") version "1.6.0"
 	kotlin("plugin.jpa") version "1.6.0"
@@ -33,6 +30,7 @@ repositories {
 }
 
 dependencies {
+	implementation ("io.jsonwebtoken:jjwt:0.9.1")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -41,6 +39,9 @@ dependencies {
 	implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1") // https://github.com/Kotlin/kotlinx.serialization
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2") // https://github.com/Kotlin/kotlinx.coroutines
 	implementation("com.querydsl:querydsl-jpa:4.4.0")
+
+	implementation ("org.springframework.boot:spring-boot-starter-security")
+	implementation ("org.springframework.security:spring-security-test")
 	runtimeOnly("mysql:mysql-connector-java")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 

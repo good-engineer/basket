@@ -14,11 +14,11 @@ public class BasketProduct {
     private java.lang.Long id;
     @org.jetbrains.annotations.Nullable
     @javax.persistence.JoinColumn(name = "product_id", nullable = false, referencedColumnName = "id")
-    @javax.persistence.OneToOne
+    @javax.persistence.ManyToOne(fetch = javax.persistence.FetchType.LAZY)
     private com.maryland.basket.entity.Product product;
     @org.jetbrains.annotations.Nullable
     @javax.persistence.JoinColumn(name = "basket_id", nullable = false, referencedColumnName = "id")
-    @javax.persistence.OneToOne
+    @javax.persistence.ManyToOne(fetch = javax.persistence.FetchType.LAZY)
     private com.maryland.basket.entity.Basket basket;
     
     public BasketProduct() {
