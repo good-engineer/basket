@@ -4,14 +4,9 @@ import com.maryland.basket.AllOpen
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
+import org.springframework.security.core.GrantedAuthority
 import java.util.Date
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
-import javax.persistence.Temporal
-import javax.persistence.TemporalType
+import javax.persistence.*
 
 @AllOpen
 @Entity
@@ -37,7 +32,7 @@ class User(
     @Column(nullable = false)
     var name: String? = null,
 
-    @Column(nullable = true)
+    @Column(nullable = true) @Enumerated(EnumType.STRING)
     var gender: Gender? = null,
 
     @Column(nullable = true)
@@ -52,13 +47,22 @@ class User(
     @Column (nullable = false, name="is_active" )
     var isActive: Boolean=true,
 
-    @Column(nullable = false)
+    @Column(nullable = false) @Enumerated(EnumType.STRING)
     var role: Enum<Role> ? = Role.USER
 )
 
 enum class Gender {
     FEMALE, MALE
 }
-enum class Role {
-    USER, ADMIN
+enum class Role(val key: String, val value: String): GrantedAuthority {
+    ADMIN("ADMIN", "관리자") {
+        override fun getAuthority(): String {
+            return this.value
+        }
+    },
+    USER("USER", "유저") {
+        override fun getAuthority(): String {
+            return this.value
+        }
+    }
 }

@@ -5,16 +5,7 @@ import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
 import java.util.Date
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.FetchType
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
-import javax.persistence.JoinColumn
-import javax.persistence.ManyToOne
-import javax.persistence.Temporal
-import javax.persistence.TemporalType
+import javax.persistence.*
 
 @AllOpen
 @Entity
@@ -47,7 +38,7 @@ class Order(
     @JoinColumn(name = "creator_id", nullable = true)
     var creator: User? = null,
 
-    @Column(nullable = false)
+    @Column(nullable = false) @Enumerated(EnumType.STRING)
     var status: Enum<OrderStatus>  = OrderStatus.OPENED,
 
     @ManyToOne(fetch = FetchType.LAZY)
