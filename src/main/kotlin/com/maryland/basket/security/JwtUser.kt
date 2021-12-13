@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.stereotype.Component
 
 @Component
-class JwtUser (var user : User? =null): UserDetails {
+class JwtUser(var user: User? = null) : UserDetails {
 
 //    var id: Long? = null
 //    var name: String? = null
@@ -16,11 +16,11 @@ class JwtUser (var user : User? =null): UserDetails {
     private var authorities = mutableListOf(SimpleGrantedAuthority(user?.role.toString()))
 
     override fun getAuthorities(): MutableCollection<out GrantedAuthority> {
-       return authorities
+        return authorities
     }
 
     override fun getPassword(): String? {
-      return  user?.password
+        return user?.password
     }
 
     override fun getUsername(): String? {

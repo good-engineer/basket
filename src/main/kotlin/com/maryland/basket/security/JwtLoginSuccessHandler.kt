@@ -5,7 +5,7 @@ import org.springframework.security.web.authentication.SavedRequestAwareAuthenti
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-class JwtLoginSuccessHandler : SavedRequestAwareAuthenticationSuccessHandler(){
+class JwtLoginSuccessHandler : SavedRequestAwareAuthenticationSuccessHandler() {
     override fun onAuthenticationSuccess(
         request: HttpServletRequest?,
         response: HttpServletResponse?,
@@ -13,6 +13,6 @@ class JwtLoginSuccessHandler : SavedRequestAwareAuthenticationSuccessHandler(){
     ) {
         val user = (authentication?.principal as JwtUser).user
         val jwtToken = TokenUtils.generateJwtToken(user)
-        response?.setHeader("Authorization", "Barear "+jwtToken)
+        response?.setHeader("Authorization", "Barear " + jwtToken)
     }
 }

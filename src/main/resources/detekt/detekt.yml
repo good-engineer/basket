@@ -113,9 +113,7 @@ style:
     excludes: ['**/*.kt']
     includes: ['**/detekt-api/src/main/**/api/*.kt']
   MaxLineLength:
-    active: true
-    excludes: ['**/test/**', '**/*Test.kt', '**/*Spec.kt']
-    excludeCommentStatements: true
+    active: false
   MagicNumber:
     ignorePropertyDeclaration: true
     ignoreAnnotation: true

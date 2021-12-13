@@ -11,7 +11,7 @@ class UserService(val userRepository: UserRepository) {
         return userRepository.findUserByEmail(email)
     }
 
-   fun signUp(user: User): User {
+    fun signUp(user: User): User {
         return userRepository.save(user)
     }
 

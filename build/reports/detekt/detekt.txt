@@ -1,0 +1,9 @@
+SpacingBetweenPackageAndImports - [TokenUtils.kt] at /Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/security/TokenUtils.kt:14:34 - Signature=TokenUtils.kt$ 
+UtilityClassWithPublicConstructor - [TokenUtils] at /Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/security/TokenUtils.kt:15:1 - Signature=TokenUtils.kt$TokenUtils
+MagicNumber - [onAuthenticationFailure] at /Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/security/JwtLoginFailureHandler.kt:24:28 - Signature=JwtLoginFailureHandler.kt$JwtLoginFailureHandler$401
+UnusedPrivateMember - [logger] at /Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/security/JwtAuthenticationProvider.kt:19:5 - Signature=JwtAuthenticationProvider.kt$JwtAuthenticationProvider$private val logger = LoggerFactory.getLogger(this.javaClass)
+WildcardImport - [Invoice.kt] at /Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/entity/Invoice.kt:7:1 - Signature=Invoice.kt$import javax.persistence.*
+WildcardImport - [User.kt] at /Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/entity/User.kt:8:1 - Signature=User.kt$import javax.persistence.*
+WildcardImport - [Order.kt] at /Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/entity/Order.kt:7:1 - Signature=Order.kt$import javax.persistence.*
+WildcardImport - [UserController.kt] at /Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/controller/UserController.kt:9:1 - Signature=UserController.kt$import org.springframework.web.bind.annotation.*
+UtilityClassWithPublicConstructor - [AuthConstants] at /Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/constant/AuthConstants.kt:3:1 - Signature=AuthConstants.kt$AuthConstants

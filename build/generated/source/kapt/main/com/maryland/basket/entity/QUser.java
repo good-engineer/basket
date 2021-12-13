@@ -29,7 +29,15 @@ public class QUser extends EntityPathBase<User> {
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
+    public final BooleanPath isActive = createBoolean("isActive");
+
     public final StringPath name = createString("name");
+
+    public final StringPath password = createString("password");
+
+    public final StringPath phoneNumber = createString("phoneNumber");
+
+    public final ComparablePath<Enum<Role>> role = createComparable("role", Enum.class);
 
     public final DateTimePath<java.util.Date> updatedAt = createDateTime("updatedAt", java.util.Date.class);
 

@@ -1,12 +1,19 @@
 package com.maryland.basket.entity
 
 import com.maryland.basket.AllOpen
-import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
 import org.springframework.security.core.GrantedAuthority
 import java.util.Date
-import javax.persistence.*
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
+import javax.persistence.Id
+import javax.persistence.Column
+import javax.persistence.Temporal
+import javax.persistence.TemporalType
+import javax.persistence.Enumerated
+import javax.persistence.EnumType
 
 @AllOpen
 @Entity
@@ -44,8 +51,8 @@ class User(
     @Column(nullable = false)
     var password: String? = null,
 
-    @Column (nullable = false, name="is_active" )
-    var isActive: Boolean=true,
+    @Column(nullable = false, name = "is_active")
+    var isActive: Boolean = true,
 
     @Column(nullable = false) @Enumerated(EnumType.STRING)
     var role: Enum<Role> ? = Role.USER
@@ -54,7 +61,7 @@ class User(
 enum class Gender {
     FEMALE, MALE
 }
-enum class Role(val key: String, val value: String): GrantedAuthority {
+enum class Role(val key: String, val value: String) : GrantedAuthority {
     ADMIN("ADMIN", "관리자") {
         override fun getAuthority(): String {
             return this.value

@@ -4,6 +4,186 @@
   "runs": [
     {
       "results": [
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/security/TokenUtils.kt"
+                },
+                "region": {
+                  "startColumn": 34,
+                  "startLine": 14
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "There should be exactly one empty line in between the list of imports and the declaration of TokenUtils."
+          },
+          "ruleId": "detekt.style.SpacingBetweenPackageAndImports"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/security/TokenUtils.kt"
+                },
+                "region": {
+                  "startColumn": 1,
+                  "startLine": 15
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "The class TokenUtils only contains utility functions. Consider defining it as an object."
+          },
+          "ruleId": "detekt.style.UtilityClassWithPublicConstructor"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/security/JwtLoginFailureHandler.kt"
+                },
+                "region": {
+                  "startColumn": 28,
+                  "startLine": 24
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "This expression contains a magic number. Consider defining it to a well named constant."
+          },
+          "ruleId": "detekt.style.MagicNumber"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/security/JwtAuthenticationProvider.kt"
+                },
+                "region": {
+                  "startColumn": 5,
+                  "startLine": 19
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Private property logger is unused."
+          },
+          "ruleId": "detekt.style.UnusedPrivateMember"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/entity/Invoice.kt"
+                },
+                "region": {
+                  "startColumn": 1,
+                  "startLine": 7
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "javax.persistence.* is a wildcard import. Replace it with fully qualified imports."
+          },
+          "ruleId": "detekt.style.WildcardImport"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/entity/User.kt"
+                },
+                "region": {
+                  "startColumn": 1,
+                  "startLine": 8
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "javax.persistence.* is a wildcard import. Replace it with fully qualified imports."
+          },
+          "ruleId": "detekt.style.WildcardImport"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/entity/Order.kt"
+                },
+                "region": {
+                  "startColumn": 1,
+                  "startLine": 7
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "javax.persistence.* is a wildcard import. Replace it with fully qualified imports."
+          },
+          "ruleId": "detekt.style.WildcardImport"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/controller/UserController.kt"
+                },
+                "region": {
+                  "startColumn": 1,
+                  "startLine": 9
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "org.springframework.web.bind.annotation.* is a wildcard import. Replace it with fully qualified imports."
+          },
+          "ruleId": "detekt.style.WildcardImport"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/constant/AuthConstants.kt"
+                },
+                "region": {
+                  "startColumn": 1,
+                  "startLine": 3
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "The class AuthConstants only contains utility functions. Consider defining it as an object."
+          },
+          "ruleId": "detekt.style.UtilityClassWithPublicConstructor"
+        }
       ],
       "tool": {
         "driver": {

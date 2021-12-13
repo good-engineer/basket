@@ -2,6 +2,8 @@ package com.maryland.basket.configuration
 
 import com.maryland.basket.security.JwtAuthenticationFilter
 import com.maryland.basket.security.JwtAuthenticationProvider
+import com.maryland.basket.security.JwtLoginFailureHandler
+import com.maryland.basket.security.JwtLoginSuccessHandler
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -37,21 +39,22 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
         auth.authenticationProvider(JwtAuthenticationProvider())
     }
 
-
     @Bean
     fun JwtAuthenticationProvider(): JwtAuthenticationProvider {
         return JwtAuthenticationProvider(bCryptPasswordEncoder())
     }
 
     @Bean
-    fun bCryptPasswordEncoder():BCryptPasswordEncoder{
+    fun bCryptPasswordEncoder(): BCryptPasswordEncoder {
         return BCryptPasswordEncoder()
     }
 
     @Bean
-    fun jwtAuthenticationFilter(): JwtAuthenticationFilter{
-     val jwtAuthenticationFilter = JwtAuthenticationFilter(authenticationManager())
+    fun jwtAuthenticationFilter(): JwtAuthenticationFilter {
+        val jwtAuthenticationFilter = JwtAuthenticationFilter(authenticationManager())
         jwtAuthenticationFilter.setFilterProcessesUrl("user/login")
-        return  jwtAuthenticationFilter
+        jwtAuthenticationFilter.setAuthenticationSuccessHandler(JwtLoginSuccessHandler())
+        jwtAuthenticationFilter.setAuthenticationFailureHandler(JwtLoginFailureHandler())
+        return jwtAuthenticationFilter
     }
 }

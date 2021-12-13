@@ -1,11 +1,21 @@
 package com.maryland.basket.entity
 
 import com.maryland.basket.AllOpen
-import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
 import java.util.Date
-import javax.persistence.*
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
+import javax.persistence.Id
+import javax.persistence.Column
+import javax.persistence.Temporal
+import javax.persistence.TemporalType
+import javax.persistence.ManyToOne
+import javax.persistence.FetchType
+import javax.persistence.JoinColumn
+import javax.persistence.Enumerated
+import javax.persistence.EnumType
 
 @AllOpen
 @Entity
@@ -39,7 +49,7 @@ class Order(
     var creator: User? = null,
 
     @Column(nullable = false) @Enumerated(EnumType.STRING)
-    var status: Enum<OrderStatus>  = OrderStatus.OPENED,
+    var status: Enum<OrderStatus> = OrderStatus.OPENED,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "basket_id", referencedColumnName = "id", nullable = false)

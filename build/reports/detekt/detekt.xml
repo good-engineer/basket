@@ -1,3 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="4.3">
+<file name="/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/security/TokenUtils.kt">
+	<error line="14" column="34" severity="warning" message="There should be exactly one empty line in between the list of imports and the declaration of TokenUtils." source="detekt.SpacingBetweenPackageAndImports" />
+	<error line="15" column="1" severity="warning" message="The class TokenUtils only contains utility functions. Consider defining it as an object." source="detekt.UtilityClassWithPublicConstructor" />
+</file>
+<file name="/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/security/JwtLoginFailureHandler.kt">
+	<error line="24" column="28" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
+</file>
+<file name="/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/security/JwtAuthenticationProvider.kt">
+	<error line="19" column="5" severity="warning" message="Private property logger is unused." source="detekt.UnusedPrivateMember" />
+</file>
+<file name="/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/entity/Invoice.kt">
+	<error line="7" column="1" severity="warning" message="javax.persistence.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/entity/User.kt">
+	<error line="8" column="1" severity="warning" message="javax.persistence.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/entity/Order.kt">
+	<error line="7" column="1" severity="warning" message="javax.persistence.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/controller/UserController.kt">
+	<error line="9" column="1" severity="warning" message="org.springframework.web.bind.annotation.* is a wildcard import. Replace it with fully qualified imports." source="detekt.WildcardImport" />
+</file>
+<file name="/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/constant/AuthConstants.kt">
+	<error line="3" column="1" severity="warning" message="The class AuthConstants only contains utility functions. Consider defining it as an object." source="detekt.UtilityClassWithPublicConstructor" />
+</file>
 </checkstyle>
