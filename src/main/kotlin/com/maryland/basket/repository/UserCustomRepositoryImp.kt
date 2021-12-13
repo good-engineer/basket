@@ -9,7 +9,7 @@ class UserCustomRepositoryImp
 (private val entityManager: EntityManager) : UserCustomRepository {
     private val queryFactory: JPAQueryFactory = JPAQueryFactory(entityManager)
 
-    override fun getUserByEmail(email: String?): User? {
+    override fun findUserByEmail(email: String?): User? {
         return queryFactory.selectFrom(QUser.user).where(QUser.user.email.eq(email)).fetchOne()
     }
 }

@@ -19,9 +19,9 @@ class TokenUtils {
 
         private const val secretKey = "dfjhgifygusufygsufhjdlfvkjdlkfhvk"
 
-        fun generateJwtToken (user : User): String {
+        fun generateJwtToken (user : User?): String {
 
-            return Jwts.builder().setSubject(user.email).setHeader(createHeader()).setClaims(createClaims(user)).setExpiration(
+            return Jwts.builder().setSubject(user?.email).setHeader(createHeader()).setClaims(createClaims(user)).setExpiration(
                 createExpireDate()).signWith(SignatureAlgorithm.HS256, createSigningKey()).compact()
         }
         fun isValidToken(token: String) : Boolean {
@@ -48,8 +48,8 @@ class TokenUtils {
         private fun createHeader(): Map<String, Any> {
             return hashMapOf("alg" to "H256", "type" to "jwt", "genDate" to System.currentTimeMillis())
         }
-        private fun createClaims(user: User): HashMap<String, Any?> {
-            return hashMapOf("email" to  user.email, "role" to user.role)
+        private fun createClaims(user: User?): HashMap<String, Any?> {
+            return hashMapOf("email" to  user?.email, "role" to user?.role)
         }
         private fun createExpireDate(): Date {
             val cal = Calendar.getInstance()

@@ -1,6 +1,8 @@
 package com.maryland.basket.security
 
 import com.maryland.basket.constant.AuthConstants
+import org.springframework.http.HttpStatus
+import org.springframework.web.server.ResponseStatusException
 import org.springframework.web.servlet.HandlerInterceptor
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
@@ -12,10 +14,12 @@ class JwtInterceptor : HandlerInterceptor{
         val header = request.getHeader(AuthConstants.AUTH_HEADER)
 
         header?.let {
-            val token =
+            val token = TokenUtils.getTokenFromHeader(it)
+            return TokenUtils.isValidToken(token)
         }
 
-        return super.preHandle(request, response, handler)
+        throw ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized")
+        return false
     }
 }
 
