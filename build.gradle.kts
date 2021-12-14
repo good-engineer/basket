@@ -39,6 +39,7 @@ dependencies {
 
 	implementation ("org.springframework.boot:spring-boot-starter-security")
 	implementation ("org.springframework.security:spring-security-test")
+	implementation(group = "org.javassist", name = "javassist", version = "3.27.0-GA")
 	runtimeOnly("mysql:mysql-connector-java")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 

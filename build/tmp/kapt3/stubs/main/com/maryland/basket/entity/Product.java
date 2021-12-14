@@ -22,19 +22,19 @@ public class Product {
     @org.hibernate.annotations.UpdateTimestamp
     private java.util.Date updatedAt;
     @org.jetbrains.annotations.Nullable
-    @javax.persistence.Column(nullable = false)
+    @javax.persistence.Column(nullable = false, length = 100)
     private java.lang.String name;
     @org.jetbrains.annotations.Nullable
-    @javax.persistence.Column(nullable = false)
+    @javax.persistence.Column(nullable = false, length = 500)
     private java.lang.String url;
     @org.jetbrains.annotations.Nullable
     @javax.persistence.Column(nullable = false)
     private java.lang.Long price;
     @org.jetbrains.annotations.Nullable
-    @javax.persistence.Column(nullable = true)
+    @javax.persistence.Column(nullable = true, length = 200)
     private java.lang.String description;
     @org.jetbrains.annotations.Nullable
-    @javax.persistence.Column(nullable = true)
+    @javax.persistence.Column(nullable = true, length = 1000)
     private java.lang.String meta;
     
     public Product(@org.jetbrains.annotations.Nullable

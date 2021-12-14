@@ -30,18 +30,18 @@ class Product(
     @Column(name = "updated_at", nullable = false)
     var updatedAt: Date,
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     var name: String? = null,
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 500)
     var url: String? = null,
 
     @Column(nullable = false)
     var price: Long? = null,
 
-    @Column(nullable = true)
+    @Column(nullable = true, length = 200)
     var description: String? = null,
 
-    @Column(nullable = true)
+    @Column(nullable = true, length = 1000)
     var meta: String? = null
 )

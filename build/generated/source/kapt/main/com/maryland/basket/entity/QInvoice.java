@@ -32,7 +32,7 @@ public class QInvoice extends EntityPathBase<Invoice> {
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final QOrder order;
+    public final QOrderRecord order;
 
     public final EnumPath<InvoiceStatus> status = createEnum("status", InvoiceStatus.class);
 
@@ -59,7 +59,7 @@ public class QInvoice extends EntityPathBase<Invoice> {
     public QInvoice(Class<? extends Invoice> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
         this.from = inits.isInitialized("from") ? new QUser(forProperty("from")) : null;
-        this.order = inits.isInitialized("order") ? new QOrder(forProperty("order"), inits.get("order")) : null;
+        this.order = inits.isInitialized("order") ? new QOrderRecord(forProperty("order"), inits.get("order")) : null;
         this.to = inits.isInitialized("to") ? new QUser(forProperty("to")) : null;
     }
 

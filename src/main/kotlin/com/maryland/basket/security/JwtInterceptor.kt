@@ -15,7 +15,6 @@ class JwtInterceptor : HandlerInterceptor {
             val token = TokenUtils.getTokenFromHeader(it)
             return TokenUtils.isValidToken(token)
         }
-
         throw ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized")
         return false
     }

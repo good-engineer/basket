@@ -32,7 +32,7 @@ class Basket(
     @Column(name = "updated_at")
     var updatedAt: Date,
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     var name: String? = null
 
 )

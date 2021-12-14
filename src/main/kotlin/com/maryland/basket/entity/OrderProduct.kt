@@ -4,6 +4,7 @@ import com.maryland.basket.AllOpen
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.FetchType
+import javax.persistence.ForeignKey
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
@@ -22,10 +23,10 @@ class OrderProduct(
     var id: Long? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id", nullable = false, referencedColumnName = "id")
+    @JoinColumn(name = "product_id", nullable = false, referencedColumnName = "id", foreignKey = ForeignKey(name = "fk_op_product_id"))
     var product: Product? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_id", nullable = false, referencedColumnName = "id")
-    var order: Order? = null
+    @JoinColumn(name = "order_id", nullable = false, referencedColumnName = "id", foreignKey = ForeignKey(name = "fk_op_order_id"))
+    var order: OrderRecord? = null
 )

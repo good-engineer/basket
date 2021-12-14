@@ -14,7 +14,7 @@ import javax.xml.bind.DatatypeConverter
 import kotlin.collections.HashMap
 
 @Component
-class TokenUtils {
+sealed class TokenUtils {
     companion object {
 
         fun generateJwtToken(user: User?): String {

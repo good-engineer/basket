@@ -4,22 +4,23 @@ import com.maryland.basket.AllOpen
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
 import java.util.Date
+import javax.persistence.Column
 import javax.persistence.Entity
+import javax.persistence.EnumType
+import javax.persistence.Enumerated
+import javax.persistence.FetchType
+import javax.persistence.ForeignKey
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
-import javax.persistence.Column
+import javax.persistence.JoinColumn
+import javax.persistence.ManyToOne
 import javax.persistence.Temporal
 import javax.persistence.TemporalType
-import javax.persistence.ManyToOne
-import javax.persistence.FetchType
-import javax.persistence.JoinColumn
-import javax.persistence.Enumerated
-import javax.persistence.EnumType
 
 @AllOpen
 @Entity
-class Order(
+class OrderRecord(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
@@ -45,14 +46,15 @@ class Order(
     var deadline: Date? = null,
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "creator_id", nullable = true)
+    @JoinColumn(name = "creator_id", referencedColumnName = "id", nullable = true, foreignKey = ForeignKey(name = "fk_o_user_id"))
     var creator: User? = null,
 
-    @Column(nullable = false) @Enumerated(EnumType.STRING)
-    var status: Enum<OrderStatus> = OrderStatus.OPENED,
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    var status: OrderStatus? = OrderStatus.OPENED,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "basket_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "basket_id", referencedColumnName = "id", nullable = false, foreignKey = ForeignKey(name = "fk_o_basket_id"))
     var basket: Basket? = null
 
 )

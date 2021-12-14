@@ -72,9 +72,9 @@ pre {
 
 <div>
   <ul>
-    <li>25 number of properties</li>
-    <li>42 number of functions</li>
-    <li>45 number of classes</li>
+    <li>23 number of properties</li>
+    <li>43 number of functions</li>
+    <li>44 number of classes</li>
     <li>8 number of packages</li>
     <li>28 number of kt files</li>
   </ul>
@@ -85,141 +85,25 @@ pre {
 
 <div>
   <ul>
-    <li>842 lines of code (loc)</li>
-    <li>675 source lines of code (sloc)</li>
-    <li>389 logical lines of code (lloc)</li>
+    <li>884 lines of code (loc)</li>
+    <li>719 source lines of code (sloc)</li>
+    <li>395 logical lines of code (lloc)</li>
     <li>6 comment lines of code (cloc)</li>
-    <li>52 cyclomatic complexity (mcc)</li>
+    <li>53 cyclomatic complexity (mcc)</li>
     <li>7 cognitive complexity</li>
-    <li>9 number of total code smells</li>
+    <li>0 number of total code smells</li>
     <li>0% comment source ratio</li>
-    <li>133 mcc per 1,000 lloc</li>
-    <li>23 code smells per 1,000 lloc</li>
+    <li>134 mcc per 1,000 lloc</li>
+    <li>0 code smells per 1,000 lloc</li>
   </ul>
 </div>
 
 
 <h2>Findings</h2>
-<div>Total: 9
-  <h3>style: 9</h3>
-  <details id="MagicNumber" open="open">
-    <summary class="rule-container"><span class="rule">MagicNumber: 1 </span><span class="description">Report magic numbers. Magic number is a numeric literal that is not defined as a constant and hence it's unclear what the purpose of this number is. It's better to declare such numbers as constants and give them a proper name. By default, -1, 0, 1, and 2 are not considered to be magic numbers.</span></summary>
-    <ul>
-      <li><span class="location">/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/security/JwtLoginFailureHandler.kt:24:28</span><span class="message">This expression contains a magic number. Consider defining it to a well named constant.</span>
-        <pre><code><span class="lineno">  21 </span>            }
-<span class="lineno">  22 </span>        }
-<span class="lineno">  23 </span>        throw ResponseStatusException(HttpStatus.UNAUTHORIZED, &quot;Invalid Password&quot;)
-<span class="lineno">  24 </span>        response?.status = <span class="error">401</span>
-<span class="lineno">  25 </span>    }
-<span class="lineno">  26 </span>}
-<span class="lineno">  27 </span>
-</code></pre>
-      </li>
-    </ul>
-  </details>
-  <details id="SpacingBetweenPackageAndImports" open="open">
-    <summary class="rule-container"><span class="rule">SpacingBetweenPackageAndImports: 1 </span><span class="description">Violation of the package declaration style.</span></summary>
-    <ul>
-      <li><span class="location">/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/security/TokenUtils.kt:14:34</span><span class="message">There should be exactly one empty line in between the list of imports and the declaration of TokenUtils.</span>
-        <pre><code><span class="lineno">  11 </span>import java.util.Date
-<span class="lineno">  12 </span>import javax.crypto.spec.SecretKeySpec
-<span class="lineno">  13 </span>import javax.xml.bind.DatatypeConverter
-<span class="lineno">  14 </span>import kotlin.collections.HashMap<span class="error"></span>
-<span class="lineno">  15 </span>@Component
-<span class="lineno">  16 </span>class TokenUtils {
-<span class="lineno">  17 </span>    companion object {
-</code></pre>
-      </li>
-    </ul>
-  </details>
-  <details id="UnusedPrivateMember" open="open">
-    <summary class="rule-container"><span class="rule">UnusedPrivateMember: 1 </span><span class="description">Private member is unused.</span></summary>
-    <ul>
-      <li><span class="location">/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/security/JwtAuthenticationProvider.kt:19:5</span><span class="message">Private property logger is unused.</span>
-        <pre><code><span class="lineno">  16 </span>    @Resource
-<span class="lineno">  17 </span>    private lateinit var jwtUserDetailsService: JwtUserDetailsService
-<span class="lineno">  18 </span>
-<span class="lineno">  19 </span>    <span class="error">private val logger = LoggerFactory.getLogger(this.javaClass)</span>
-<span class="lineno">  20 </span>
-<span class="lineno">  21 </span>    // 인증 메서드
-<span class="lineno">  22 </span>    override fun authenticate(authentication: Authentication?): Authentication {
-</code></pre>
-      </li>
-    </ul>
-  </details>
-  <details id="UtilityClassWithPublicConstructor" open="open">
-    <summary class="rule-container"><span class="rule">UtilityClassWithPublicConstructor: 2 </span><span class="description">The class declaration is unnecessary because it only contains utility functions. An object declaration should be used instead.</span></summary>
-    <ul>
-      <li><span class="location">/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/constant/AuthConstants.kt:3:1</span><span class="message">The class AuthConstants only contains utility functions. Consider defining it as an object.</span>
-        <pre><code><span class="lineno">   1 </span>package com.maryland.basket.constant
-<span class="lineno">   2 </span>
-<span class="lineno">   3 </span><span class="error">class AuthConstants {</span>
-<span class="lineno">   4 </span><span class="error">    companion object {</span>
-<span class="lineno">   5 </span><span class="error">        const val AUTH_HEADER = &quot;Authorization&quot;</span>
-<span class="lineno">   6 </span><span class="error">        const val TOKEN_TYPE = &quot;BEARER&quot;</span>
-</code></pre>
-      </li>
-      <li><span class="location">/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/security/TokenUtils.kt:15:1</span><span class="message">The class TokenUtils only contains utility functions. Consider defining it as an object.</span>
-        <pre><code><span class="lineno">  12 </span>import javax.crypto.spec.SecretKeySpec
-<span class="lineno">  13 </span>import javax.xml.bind.DatatypeConverter
-<span class="lineno">  14 </span>import kotlin.collections.HashMap
-<span class="lineno">  15 </span><span class="error">@Component</span>
-<span class="lineno">  16 </span><span class="error">class TokenUtils {</span>
-<span class="lineno">  17 </span><span class="error">    companion object {</span>
-<span class="lineno">  18 </span><span class="error"></span>
-</code></pre>
-      </li>
-    </ul>
-  </details>
-  <details id="WildcardImport" open="open">
-    <summary class="rule-container"><span class="rule">WildcardImport: 4 </span><span class="description">Wildcard imports should be replaced with imports using fully qualified class names. Wildcard imports can lead to naming conflicts. A library update can introduce naming clashes with your classes which results in compilation errors.</span></summary>
-    <ul>
-      <li><span class="location">/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/controller/UserController.kt:9:1</span><span class="message">org.springframework.web.bind.annotation.* is a wildcard import. Replace it with fully qualified imports.</span>
-        <pre><code><span class="lineno">   6 </span>import com.maryland.basket.service.UserService
-<span class="lineno">   7 </span>import org.springframework.http.ResponseEntity
-<span class="lineno">   8 </span>import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
-<span class="lineno">   9 </span><span class="error">import org.springframework.web.bind.annotation.*</span>
-<span class="lineno">  10 </span>
-<span class="lineno">  11 </span>@RestController
-<span class="lineno">  12 </span>@RequestMapping(&quot;/api/v1/&quot;)
-</code></pre>
-      </li>
-      <li><span class="location">/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/entity/Invoice.kt:7:1</span><span class="message">javax.persistence.* is a wildcard import. Replace it with fully qualified imports.</span>
-        <pre><code><span class="lineno">   4 </span>import org.hibernate.annotations.CreationTimestamp
-<span class="lineno">   5 </span>import org.hibernate.annotations.UpdateTimestamp
-<span class="lineno">   6 </span>import java.util.Date
-<span class="lineno">   7 </span><span class="error">import javax.persistence.*</span>
-<span class="lineno">   8 </span>
-<span class="lineno">   9 </span>@AllOpen
-<span class="lineno">  10 </span>@Entity
-</code></pre>
-      </li>
-      <li><span class="location">/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/entity/Order.kt:7:1</span><span class="message">javax.persistence.* is a wildcard import. Replace it with fully qualified imports.</span>
-        <pre><code><span class="lineno">   4 </span>import org.hibernate.annotations.CreationTimestamp
-<span class="lineno">   5 </span>import org.hibernate.annotations.UpdateTimestamp
-<span class="lineno">   6 </span>import java.util.Date
-<span class="lineno">   7 </span><span class="error">import javax.persistence.*</span>
-<span class="lineno">   8 </span>
-<span class="lineno">   9 </span>@AllOpen
-<span class="lineno">  10 </span>@Entity
-</code></pre>
-      </li>
-      <li><span class="location">/Users/goodengineer/github/basket/src/main/kotlin/com/maryland/basket/entity/User.kt:8:1</span><span class="message">javax.persistence.* is a wildcard import. Replace it with fully qualified imports.</span>
-        <pre><code><span class="lineno">   5 </span>import org.hibernate.annotations.UpdateTimestamp
-<span class="lineno">   6 </span>import org.springframework.security.core.GrantedAuthority
-<span class="lineno">   7 </span>import java.util.Date
-<span class="lineno">   8 </span><span class="error">import javax.persistence.*</span>
-<span class="lineno">   9 </span>
-<span class="lineno">  10 </span>@AllOpen
-<span class="lineno">  11 </span>@Entity
-</code></pre>
-      </li>
-    </ul>
-  </details>
-</div>
+<div>Total: 0</div>
 
 
-generated with <a href="https://detekt.github.io/">detekt version 1.19.0-RC1</a> on 2021-12-13 09:32:16 UTC.
+generated with <a href="https://detekt.github.io/">detekt version 1.19.0-RC1</a> on 2021-12-14 08:50:42 UTC.
 
 </body>
 </html>

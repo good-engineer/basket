@@ -13,11 +13,11 @@ public class UserBasket {
     @javax.persistence.Id
     private java.lang.Long id;
     @org.jetbrains.annotations.Nullable
-    @javax.persistence.JoinColumn(name = "user_id", nullable = false, referencedColumnName = "id")
+    @javax.persistence.JoinColumn(name = "user_id", nullable = false, referencedColumnName = "id", foreignKey = @javax.persistence.ForeignKey(name = "fk_ub_user_id"))
     @javax.persistence.ManyToOne(fetch = javax.persistence.FetchType.LAZY)
     private com.maryland.basket.entity.User user;
     @org.jetbrains.annotations.Nullable
-    @javax.persistence.JoinColumn(name = "basket_id", nullable = false, referencedColumnName = "id")
+    @javax.persistence.JoinColumn(name = "basket_id", nullable = false, referencedColumnName = "id", foreignKey = @javax.persistence.ForeignKey(name = "fk_ub_basket_id"))
     @javax.persistence.ManyToOne(fetch = javax.persistence.FetchType.LAZY)
     private com.maryland.basket.entity.Basket basket;
     

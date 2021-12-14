@@ -23,7 +23,7 @@ public class Basket {
     @org.hibernate.annotations.UpdateTimestamp
     private java.util.Date updatedAt;
     @org.jetbrains.annotations.Nullable
-    @javax.persistence.Column(nullable = false)
+    @javax.persistence.Column(nullable = false, length = 100)
     private java.lang.String name;
     
     public Basket(@org.jetbrains.annotations.Nullable

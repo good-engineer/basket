@@ -24,7 +24,7 @@ public class QOrderProduct extends EntityPathBase<OrderProduct> {
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final QOrder order;
+    public final QOrderRecord order;
 
     public final QProduct product;
 
@@ -46,7 +46,7 @@ public class QOrderProduct extends EntityPathBase<OrderProduct> {
 
     public QOrderProduct(Class<? extends OrderProduct> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.order = inits.isInitialized("order") ? new QOrder(forProperty("order"), inits.get("order")) : null;
+        this.order = inits.isInitialized("order") ? new QOrderRecord(forProperty("order"), inits.get("order")) : null;
         this.product = inits.isInitialized("product") ? new QProduct(forProperty("product")) : null;
     }
 

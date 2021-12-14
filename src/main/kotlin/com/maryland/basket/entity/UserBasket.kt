@@ -4,6 +4,7 @@ import com.maryland.basket.AllOpen
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.FetchType
+import javax.persistence.ForeignKey
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
@@ -22,10 +23,10 @@ class UserBasket(
     var id: Long? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false, referencedColumnName = "id")
+    @JoinColumn(name = "user_id", nullable = false, referencedColumnName = "id", foreignKey = ForeignKey(name = "fk_ub_user_id"))
     var user: User? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "basket_id", nullable = false, referencedColumnName = "id")
+    @JoinColumn(name = "basket_id", nullable = false, referencedColumnName = "id", foreignKey = ForeignKey(name = "fk_ub_basket_id"))
     var basket: Basket? = null
 )

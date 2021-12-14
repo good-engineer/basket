@@ -1,6 +1,5 @@
 package com.maryland.basket.security
 
-import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.security.authentication.AuthenticationProvider
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
@@ -15,7 +14,6 @@ class JwtAuthenticationProvider(private val bCryptPasswordEncoder: BCryptPasswor
 
     @Resource
     private lateinit var jwtUserDetailsService: JwtUserDetailsService
-
 
     // 인증 메서드
     override fun authenticate(authentication: Authentication?): Authentication {

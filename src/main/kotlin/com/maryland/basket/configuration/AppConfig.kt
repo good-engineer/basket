@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 @Configuration
 class AppConfig : WebMvcConfigurer {
     override fun addInterceptors(registry: InterceptorRegistry) {
-        registry.addInterceptor(JwtInterceptor()).addPathPatterns("/api")
+        registry.addInterceptor(JwtInterceptor()).addPathPatterns("/api/v1/**")
     }
     @Bean
     fun jwtTokenInterceptor(): JwtInterceptor = JwtInterceptor()

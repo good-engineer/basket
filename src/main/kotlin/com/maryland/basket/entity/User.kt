@@ -5,15 +5,15 @@ import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
 import org.springframework.security.core.GrantedAuthority
 import java.util.Date
+import javax.persistence.Column
 import javax.persistence.Entity
+import javax.persistence.EnumType
+import javax.persistence.Enumerated
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
-import javax.persistence.Column
 import javax.persistence.Temporal
 import javax.persistence.TemporalType
-import javax.persistence.Enumerated
-import javax.persistence.EnumType
 
 @AllOpen
 @Entity
@@ -39,7 +39,8 @@ class User(
     @Column(nullable = false)
     var name: String? = null,
 
-    @Column(nullable = true) @Enumerated(EnumType.STRING)
+    @Column(nullable = true)
+    @Enumerated(EnumType.STRING)
     var gender: Gender? = null,
 
     @Column(nullable = true)
@@ -54,8 +55,9 @@ class User(
     @Column(nullable = false, name = "is_active")
     var isActive: Boolean = true,
 
-    @Column(nullable = false) @Enumerated(EnumType.STRING)
-    var role: Enum<Role> ? = Role.USER
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    var role: Role ? = Role.USER
 )
 
 enum class Gender {

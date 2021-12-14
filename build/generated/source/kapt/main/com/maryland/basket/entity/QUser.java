@@ -37,7 +37,7 @@ public class QUser extends EntityPathBase<User> {
 
     public final StringPath phoneNumber = createString("phoneNumber");
 
-    public final ComparablePath<Enum<Role>> role = createComparable("role", Enum.class);
+    public final EnumPath<Role> role = createEnum("role", Role.class);
 
     public final DateTimePath<java.util.Date> updatedAt = createDateTime("updatedAt", java.util.Date.class);
 
