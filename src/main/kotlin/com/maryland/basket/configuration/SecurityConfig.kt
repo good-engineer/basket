@@ -52,7 +52,7 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
     @Bean
     fun jwtAuthenticationFilter(): JwtAuthenticationFilter {
         val jwtAuthenticationFilter = JwtAuthenticationFilter(authenticationManager())
-        jwtAuthenticationFilter.setFilterProcessesUrl("/api/v1/login")
+        jwtAuthenticationFilter.setFilterProcessesUrl("/login")
         jwtAuthenticationFilter.setAuthenticationSuccessHandler(JwtLoginSuccessHandler())
         jwtAuthenticationFilter.setAuthenticationFailureHandler(JwtLoginFailureHandler())
         return jwtAuthenticationFilter

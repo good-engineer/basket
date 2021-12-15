@@ -26,6 +26,7 @@ class UserController(val bCryptPasswordEncoder: BCryptPasswordEncoder, val userS
             ResponseEntity.ok().body(TokenUtils.generateJwtToken(userService.signUp(user)))
         }
     }
+
     @GetMapping("/users")
     fun getALlUsers(): List<User> {
         return userService.getUserList()
