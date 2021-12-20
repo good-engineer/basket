@@ -2,6 +2,7 @@ package com.maryland.basket.security
 
 import com.maryland.basket.constant.AuthConstants
 import com.maryland.basket.entity.User
+import com.maryland.basket.repository.UserCustomRepository
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
@@ -14,7 +15,7 @@ import javax.xml.bind.DatatypeConverter
 import kotlin.collections.HashMap
 
 @Component
-sealed class TokenUtils {
+sealed class TokenUtils  {
     companion object {
 
         fun generateJwtToken(user: User?): String {
@@ -34,7 +35,7 @@ sealed class TokenUtils {
             return getClaimsFromToken(token)?.expiration?.after(cal.time) ?: false
         }
 
-        private fun getClaimsFromToken(token: String): Claims? {
+        fun getClaimsFromToken(token: String): Claims? {
             val parser = Jwts.parser()
             parser.setSigningKey(DatatypeConverter.parseBase64Binary(AuthConstants.SECRET_KEY))
             return parser.parseClaimsJws(token).body
@@ -57,5 +58,8 @@ sealed class TokenUtils {
         private fun createSigningKey(): Key {
             return SecretKeySpec(DatatypeConverter.parseBase64Binary(AuthConstants.SECRET_KEY), SignatureAlgorithm.HS256.jcaName)
         }
+
+
     }
+
 }
