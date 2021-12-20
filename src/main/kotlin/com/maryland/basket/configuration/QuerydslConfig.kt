@@ -1,4 +1,5 @@
 package com.maryland.basket.configuration
+
 import com.querydsl.jpa.impl.JPAQueryFactory
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
