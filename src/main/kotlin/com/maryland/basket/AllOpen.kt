@@ -1,6 +1,5 @@
 package com.maryland.basket
-import kotlin.annotation.AnnotationTarget.*
 
-@Target(CLASS, FUNCTION)
+@Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
 @Retention(AnnotationRetention.SOURCE)
 annotation class AllOpen

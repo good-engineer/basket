@@ -8,5 +8,5 @@ class BasketApplication
 
 @Suppress("SpreadOperator")
 fun main(args: Array<String>) {
-	runApplication<BasketApplication>(*args)
+    runApplication<BasketApplication>(*args)
 }
