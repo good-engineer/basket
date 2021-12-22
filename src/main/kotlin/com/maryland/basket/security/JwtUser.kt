@@ -9,10 +9,6 @@ import org.springframework.stereotype.Component
 @Component
 class JwtUser(var user: User? = null) : UserDetails {
 
-//    var id: Long? = null
-//    var name: String? = null
-//    var email: String? = null
-//    var password = null
     private var authorities = mutableListOf(SimpleGrantedAuthority(user?.role.toString()))
 
     override fun getAuthorities(): MutableCollection<out GrantedAuthority> {

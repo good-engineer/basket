@@ -1,4 +1,4 @@
-package com.maryland.basket.repository
+package com.maryland.basket.repository.user
 
 import com.maryland.basket.entity.User
 

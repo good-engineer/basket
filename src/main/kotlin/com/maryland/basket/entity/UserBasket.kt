@@ -29,4 +29,5 @@ class UserBasket(
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "basket_id", nullable = false, referencedColumnName = "id", foreignKey = ForeignKey(name = "fk_ub_basket_id"))
     var basket: Basket? = null
+
 )

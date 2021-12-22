@@ -1,6 +1,6 @@
 package com.maryland.basket.security
 
-import com.maryland.basket.repository.UserCustomRepository
+import com.maryland.basket.repository.user.UserCustomRepository
 import org.springframework.http.HttpStatus
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService

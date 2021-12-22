@@ -33,6 +33,9 @@ class Basket(
     var updatedAt: Date,
 
     @Column(nullable = false, length = 100)
-    var name: String? = null
+    var name: String? = null,
+
+    @Column(nullable = false, length = 100)
+    var address: String? = null
 
 )
